@@ -1,32 +1,30 @@
+//
+// Created by hadi_ on 4/21/2018.
+//
+#include "var.h"
 
-#include <iostream>
-#include <string>
-using namespace std; 
-#include <var.h>
-
-string nameOfValue(TriValue v){
-  static string nameOfValueTable[]={"uu", "tt", "ff"}; 
-  return nameOfValueTable[v]; 
+string nameOfValue(TriValue v) {
+  static string nameOfValueTable[] = {"uu", "tt", "ff"};
+  return nameOfValueTable[v];
 }
 
-ostream & operator << (ostream & os, Var & v) {
-  os << v.name ;//<< "has value " << nameOfValue(v.value) << endl;
-  return os; 
+ostream &operator<<(ostream &os, Var &v) {
+  os << v.name;//<< "has value " << nameOfValue(v.value) << endl;
+  return os;
 }
 
-ostream & operator << (ostream & os, TriValue val) {
-  os << nameOfValue(val); 
-  return os; 
+ostream &operator<<(ostream &os, TriValue val) {
+  os << nameOfValue(val);
+  return os;
 }
 
-Var::Var(char n[]) : name (n), value (uu) 
-{
+Var::Var(string n) : name(n), value(uu) {
 }
 
-void Var :: setValue(TriValue v) {
-  value = v; 
+void Var::setValue(TriValue v) {
+  value = v;
 }
 
-TriValue Var :: evaluate() {
-  return value; 
+TriValue Var::evaluate() {
+  return value;
 }

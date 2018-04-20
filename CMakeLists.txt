@@ -12,4 +12,4 @@ add_executable(refactoring_exercise
         lor.h
         main.cpp
         var.cpp
-        var.h)
+        var.h lnot.cpp lnot.h)
