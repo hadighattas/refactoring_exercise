@@ -8,19 +8,14 @@
 #include <iostream>
 #include <string>
 
+#include "base.h"
+
 using std::string;
 using std::ostream;
 
-enum TriValue {
-    u, t, f,
-};
-enum LType {
-    VarT, LAndT, LOrT, LNotT
-};
-
 string nameOfValue(TriValue v);
 
-struct Var {
+struct Var : Base {
     string name;
     TriValue value;
 
