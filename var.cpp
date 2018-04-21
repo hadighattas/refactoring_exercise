@@ -18,3 +18,8 @@ TriValue Var::evaluate() {
     return value;
 }
 
+list<Var *> Var::getVars() {
+    list<Var *> listReturn;
+    listReturn.push_back(this);
+    return listReturn;
+}

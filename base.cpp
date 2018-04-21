@@ -3,17 +3,31 @@
 //
 #include "base.h"
 
-string nameOfValue(TriValue v) {
-    static string nameOfValueTable[] = {"u", "t", "f"};
-    return nameOfValueTable[v];
-}
-
 ostream &operator<<(ostream &os, Base &b) {
     b.serialize(os);
     return os;
 }
 
 ostream &operator<<(ostream &os, TriValue val) {
-    os << nameOfValue(val);
+    os << nameOfValueTable[val];
     return os;
+}
+
+list<Var *> Base::getVars() {
+    list<Var *> listReturn;
+    list<Var *> leftList = left->getVars();
+    list<Var *> rightList = right->getVars();
+
+    for (auto const &i : rightList) {
+        listReturn.push_back(i);
+    }
+
+    for (auto const &i : leftList) {
+        listReturn.push_back(i);
+    }
+
+    listReturn.sort();
+    listReturn.unique();
+
+    return listReturn;
 }

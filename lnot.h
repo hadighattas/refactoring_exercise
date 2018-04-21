@@ -8,9 +8,6 @@
 
 #include "base.h"
 
-struct LAnd;
-struct LOr;
-
 struct LNot : Base {
     LNot(void *left);
 

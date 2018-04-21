@@ -8,9 +8,7 @@
 
 #include "base.h"
 
-struct LOr;
-
-struct LNot;
+struct Var;
 
 struct LAnd : Base {
 

@@ -6,15 +6,19 @@
 #define REFACTORING_EXERCISE_BASE_H
 
 #include <iostream>
+#include <list>
 
 using std::ostream;
 using std::string;
+using std::list;
 
 enum TriValue {
     u, t, f,
 };
 
-string nameOfValue(TriValue v);
+static string nameOfValueTable[] = {"u", "t", "f"};
+
+struct Var;
 
 struct Base {
     Base *right;
@@ -23,6 +27,10 @@ struct Base {
     virtual void serialize(ostream &os)=0;
 
     virtual TriValue evaluate()=0;
+
+    virtual list<Var*> getVars();
+
+    virtual void setValue(TriValue value) {};
 };
 
 ostream &operator<<(ostream &os, TriValue val);

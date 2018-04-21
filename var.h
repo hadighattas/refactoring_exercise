@@ -5,13 +5,7 @@
 #ifndef EECE437_FORMULA_VAR_H
 #define EECE437_FORMULA_VAR_H
 
-#include <iostream>
-#include <string>
-
 #include "base.h"
-
-using std::string;
-using std::ostream;
 
 struct Var : Base {
     string name;
@@ -19,11 +13,13 @@ struct Var : Base {
 
     Var(string name);
 
-    virtual void setValue(TriValue value);
+    virtual void setValue(TriValue value) override;
 
     void serialize(ostream &os) override;
 
     TriValue evaluate() override;
+
+    list<Var*> getVars() override;
 };
 
 #endif //EECE437_FORMULA_VAR_H
