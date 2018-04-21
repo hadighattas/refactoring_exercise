@@ -6,27 +6,19 @@
 #define EECE437_FORMULA_LOR_H
 
 
-#include "var.h"
+#include "base.h"
 
 struct LAnd;
 
 struct LNot;
 
-struct LOr {
-    Var *leftV;
-    Var *rightV;
-    LAnd *leftAnd;
-    LAnd *rightAnd;
-    LOr *leftOr;
-    LOr *rightOr;
-    LNot *leftNot;
-    LNot *rightNot;
+struct LOr : Base {
 
-    LOr(void *left, void *right, LType lType, LType rType);
+    LOr(void *left, void *right);
 
-    TriValue evaluate();
+    void serialize(ostream &os) override ;
+
+    TriValue evaluate() override;
 };
-
-ostream &operator<<(ostream &os, LOr &v);
 
 #endif //EECE437_FORMULA_LOR_H

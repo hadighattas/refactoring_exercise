@@ -15,10 +15,10 @@ int
 main() {
   Var v1("x0");
   Var v2("x1");
-  LAnd a1(&v1, &v2, VarT, VarT);
-  LAnd a2(&a1, &v2, LAndT, VarT);
-  LOr o1(&a2, &v1, LAndT, VarT);
-  LNot n1(&o1, LOrT);
+  LAnd a1(&v1, &v2);
+  LAnd a2(&a1, &v2);
+  LOr o1(&a2, &v1);
+  LNot n1(&o1);
   cout << n1 << endl;
 
   v1.setValue(t);

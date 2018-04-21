@@ -10,9 +10,9 @@ using namespace std;
 
 Var v1("x0");
 Var v2("x1");
-LAnd a1(&v1, &v2, VarT, VarT);
-LOr o1(&v1, &v2, VarT, VarT);
-LNot n1(&v1, VarT);
+LAnd a1(&v1, &v2);
+LOr o1(&v1, &v2);
+LNot n1(&v1);
 
 TEST_CASE("evaluateAnd") {
     v1.setValue(t);

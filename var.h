@@ -13,21 +13,17 @@
 using std::string;
 using std::ostream;
 
-string nameOfValue(TriValue v);
-
 struct Var : Base {
     string name;
     TriValue value;
 
     Var(string name);
 
-    void setValue(TriValue value);
+    virtual void setValue(TriValue value);
 
-    TriValue evaluate();
+    void serialize(ostream &os) override;
+
+    TriValue evaluate() override;
 };
-
-ostream &operator<<(ostream &os, Var &v);
-
-ostream &operator<<(ostream &os, TriValue val);
 
 #endif //EECE437_FORMULA_VAR_H

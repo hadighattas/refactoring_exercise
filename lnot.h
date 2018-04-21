@@ -6,23 +6,17 @@
 #define REFACTORING_EXERCISE_LNOT_H
 
 
-#include "var.h"
+#include "base.h"
 
 struct LAnd;
 struct LOr;
 
-struct LNot {
-    Var *leftV;
-    LAnd *leftAnd;
-    LOr *leftOr;
-    LNot *leftNot;
+struct LNot : Base {
+    LNot(void *left);
 
-    LNot(void *left, LType lType);
+    void serialize(ostream &os) override ;
 
-    TriValue evaluate();
+    TriValue evaluate() override;
 };
-
-ostream &operator<<(ostream &os, LNot &f);
-
 
 #endif //REFACTORING_EXERCISE_LNOT_H
