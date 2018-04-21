@@ -41,7 +41,7 @@ LNot::LNot(void * left, LType lType)
 }
 
 TriValue LNot :: evaluate() {
-    TriValue lval = uu;
+    TriValue lval = u;
     // call the operand evaluate
     if (leftV) {
         lval = leftV->evaluate();
@@ -54,12 +54,12 @@ TriValue LNot :: evaluate() {
     }
 
     //apply truth table of logical not. 
-    if (lval == tt) {
-        return ff;
+    if (lval == t) {
+        return f;
     }
-    if (lval == ff) {
-        return tt;
+    if (lval == f) {
+        return t;
     }
-    return uu;
+    return u;
 
 }

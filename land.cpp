@@ -64,8 +64,8 @@ LAnd::LAnd(void *left, void *right, LType lType, LType rType)
 }
 
 TriValue LAnd::evaluate() {
-  TriValue lval = uu;
-  TriValue rval = uu;
+  TriValue lval = u;
+  TriValue rval = u;
   // call the left operand evaluate
   if (leftV) {
     lval = leftV->evaluate();
@@ -88,12 +88,12 @@ TriValue LAnd::evaluate() {
     rval = rightNot->evaluate();
   }
   //apply truth table.
-  if (lval == ff || rval == ff) {
-    return ff;
+  if (lval == f || rval == f) {
+    return f;
   }
-  if (lval == uu || rval == uu) {
-    return uu;
+  if (lval == u || rval == u) {
+    return u;
   }
   // only case left is both are tt
-  return tt;
+  return t;
 }

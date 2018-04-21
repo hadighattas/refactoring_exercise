@@ -12,7 +12,7 @@ using std::string;
 using std::ostream;
 
 enum TriValue {
-    uu, tt, ff,
+    u, t, f,
 };
 enum LType {
     VarT, LAndT, LOrT, LNotT
@@ -24,9 +24,9 @@ struct Var {
     string name;
     TriValue value;
 
-    Var(string n);
+    Var(string name);
 
-    void setValue(TriValue v);
+    void setValue(TriValue value);
 
     TriValue evaluate();
 };

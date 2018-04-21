@@ -18,11 +18,11 @@ ostream &operator<<(ostream &os, TriValue val) {
   return os;
 }
 
-Var::Var(string n) : name(n), value(uu) {
+Var::Var(string name) : name(name), value(u) {
 }
 
-void Var::setValue(TriValue v) {
-  value = v;
+void Var::setValue(TriValue value) {
+  this->value = value;
 }
 
 TriValue Var::evaluate() {

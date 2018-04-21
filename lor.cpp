@@ -64,8 +64,8 @@ LOr::LOr(void *left, void *right, LType lType, LType rType)
 }
 
 TriValue LOr::evaluate() {
-  TriValue lval = uu;
-  TriValue rval = uu;
+  TriValue lval = u;
+  TriValue rval = u;
   // call the left operand evaluate
   if (leftV) {
     lval = leftV->evaluate();
@@ -88,12 +88,12 @@ TriValue LOr::evaluate() {
     rval = rightNot->evaluate();
   }
   //apply truth table of logical or.
-  if (lval == tt || rval == tt) {
-    return tt;
+  if (lval == t || rval == t) {
+    return t;
   }
-  if (lval == uu || rval == uu) {
-    return uu;
+  if (lval == u || rval == u) {
+    return u;
   }
   // only case left is both are ff
-  return ff;
+  return f;
 }

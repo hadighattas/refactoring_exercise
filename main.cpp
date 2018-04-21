@@ -21,8 +21,8 @@ main() {
   LNot n1(&o1, LOrT);
   cout << n1 << endl;
 
-  v1.setValue(tt);
-  v2.setValue(ff);
+  v1.setValue(t);
+  v2.setValue(f);
   // the following works because I defined a streaming operator for TriValue in var.h and var.cpp
   cout << a1 << " " << a1.evaluate() << endl;
   cout << a2 << " " << a2.evaluate() << endl;
@@ -30,11 +30,11 @@ main() {
   TriValue val = n1.evaluate();
   cout << n1 << "evaluates to " << val << endl;
 
-  v2.setValue(tt);
+  v2.setValue(t);
   val = n1.evaluate();
   cout << "now " << n1 << "evaluates to " << nameOfValue(val) << endl;
 
-  v1.setValue(uu);
+  v1.setValue(f);
   val = n1.evaluate();
   cout << "now " << n1 << "evaluates to " << nameOfValue(val) << endl;
   // try also evaluating a1, a2 and o1.
